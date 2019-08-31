@@ -9,10 +9,11 @@ RUN locale-gen en_US.UTF-8
 
 RUN apt-get update && apt-get install -y git wget gnupg && apt-get clean
 RUN apt-get install -y make && apt-get clean
-RUN apt-get install -y texlive-latex-base && apt-get clean
-RUN apt-get install -y texlive-latex-extra  && apt-get clean
-RUN apt-get install -y texlive-fonts-recommended && apt-get clean
-RUN apt-get install -y texlive-fonts-extra && apt-get clean
+RUN apt-get install -y texlive-latex-base \
+                       texlive-latex-extra  \
+                       texlive-fonts-recommended \
+                       texlive-fonts-extra \
+                       texlive-xetex
 RUN apt-get install -y librsvg2-bin
 RUN apt-get install -y calibre && apt-get clean
 RUN apt-get install -y aspell aspell-en && apt-get clean
