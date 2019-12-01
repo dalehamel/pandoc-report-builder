@@ -21,7 +21,7 @@ RUN apt-get install -y aspell aspell-en && apt-get clean
 RUN apt-get install -y ruby ruby-dev build-essential && apt-get clean
 RUN gem install bundler
 
-RUN apt-get install -y python-pip && apt-get clean
+RUN apt-get install -y python-pip vim && apt-get clean
 # For speech generation
 RUN pip install gtts
 
