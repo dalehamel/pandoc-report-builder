@@ -13,12 +13,17 @@ RUN apt-get install -y texlive-latex-base \
                        texlive-latex-extra  \
                        texlive-fonts-recommended \
                        texlive-fonts-extra \
-                       texlive-xetex
+                       texlive-xetex \
+                       mp3info
 RUN apt-get install -y librsvg2-bin
 RUN apt-get install -y calibre && apt-get clean
 RUN apt-get install -y aspell aspell-en && apt-get clean
 RUN apt-get install -y ruby ruby-dev build-essential && apt-get clean
 RUN gem install bundler
+
+RUN apt-get install -y python-pip && apt-get clean
+# For speech generation
+RUN pip install gtts
 
 RUN wget https://github.com/jgm/pandoc/releases/download/2.7.2/pandoc-2.7.2-linux.tar.gz && tar -xvpf pandoc-2.7.2-linux.tar.gz && mv pandoc-2.7.2/bin/pandoc /usr/bin/pandoc && mv pandoc-2.7.2/bin/pandoc-citeproc /usr/bin/pandoc-citeproc && rm -rf pandoc-2.7.2 && rm -f *.tar.gz*
 RUN wget https://github.com/owickstrom/pandoc-include-code/releases/download/v1.2.0.2/pandoc-include-code-linux-ghc8-pandoc-1-19.tar.gz && tar -xvpf pandoc-include-code-linux-ghc8-pandoc-1-19.tar.gz && mv ./pandoc-include-code /usr/bin/pandoc-include-code && chmod +x /usr/bin/pandoc-include-code && rm -f *.tar.gz*
